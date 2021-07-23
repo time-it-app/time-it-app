@@ -1,0 +1,18 @@
+{
+  "name": "time-it",
+  "productName": "Time It",
+  "version": "1.0.0",
+  "description": "Free time tracker for your work tasks.",
+  "main": "./main.prod.js",
+  "author": {
+    "name": "Mais",
+    "email": "mais-hatem@hotmail.com",
+    "url": "https://github.com/itsmais"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}

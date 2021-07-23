@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Dawning+of+a+New+Day&family=Jura:wght@300;400;500;600;700&family=VT323&display=swap');
+
+@font-face {
+  font-family: 'PrimaSans';
+  src: url('../assets/fonts/PrimaSansMonoBT-Roman.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// font-family: 'Bungee Shade', cursive;
+// font-family: 'Dawning of a New Day', cursive;
+// font-family: 'Jura', sans-serif;
+// font-family: 'VT323', monospace;
+// font-family: 'PrimaSans';
+
+$pink: #fc5185;
+$blue: #364f6b;
+$cyan: #3fc1c9;
+$yellow: #fce38a;
+$white: #f4fafa;
+$table-black: rgba(255, 255, 255, 0.2);
+
+#main {
+  display: flex;
+}
+
+* {
+  font-family: 'PrimaSans', monospace;
+  -webkit-user-select: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+.Btns {
+  img {
+    cursor: pointer;
+  }
+}
+
+body,
+html {
+  background-color: $white;
+  padding: 0px;
+  margin: 0;
+  height: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+.TasksListContainer {
+  display: flex;
+}
+
+.Pagination {
+  ul {
+    list-style-type: none;
+    display: flex;
+    li {
+      list-style-type: none;
+      padding: 10px;
+      cursor: pointer;
+      color: $blue;
+      :hover {
+        background-color: $pink;
+        color: $yellow;
+      }
+    }
+  }
+}
+
+.TasksList {
+  display: flex;
+  width: -webkit-fill-available;
+  // justify-content: center;
+  flex-direction: column;
+  .Container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.TasksListHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $blue;
+  .NewTaskBtn {
+    background-color: $pink;
+    color: $yellow;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .BackBtn {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.TasksListDetails {
+  color: $blue;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  .Col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // padding-right: 15px;
+    textarea:nth-child(2n),
+    .TaskId:nth-child(2n) {
+      background: $yellow;
+    }
+    textarea,
+    .TaskId {
+      width: 90px;
+      height: 50px;
+      word-wrap: break-word;
+      word-break: break-all;
+      padding: 5px 5px;
+      margin: 5px 0;
+      background: none;
+      border: none;
+      text-align: center;
+      color: $blue;
+    }
+    textarea::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.Sidebar {
+  background: $blue;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  height: 90vh;
+  font-weight: bold;
+
+  .App-logo img {
+    width: 150px;
+    margin-bottom: 40px;
+  }
+  .Menu {
+    a {
+      text-decoration: none;
+    }
+    .Menu-item {
+      margin: 20px 0;
+      color: $yellow;
+    }
+  }
+}
+
+.MainPage {
+  display: flex;
+  width: -webkit-fill-available;
+  justify-content: center;
+}
+
+.Settings {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  color: $blue;
+  align-items: center;
+  .SettingsContent {
+    .Row {
+      .InstructionText {
+        font-size: larger;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.About {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  align-items: center;
+  color: $blue;
+  .AboutContent {
+    padding: 0 40px 40px 40px;
+  }
+  a {
+    color: $pink;
+  }
+}
+
+.Task {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  // justify-content: center;
+  color: $blue;
+  .TaskDetails {
+    text-align: center;
+  }
+  .Time {
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .TaskHourlyFeeInput,
+  .TaskNameInput {
+    padding: 10px;
+    border-radius: 19px;
+    text-align: center;
+    border-color: $blue;
+    border-style: solid;
+    border-width: 1.5px;
+    color: $blue;
+  }
+  .TaskHourlyFeeInput {
+    width: 40px;
+  }
+  .Controllers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .StartButton,
+    .PauseButton,
+    .ResumeButton,
+    .ResetButton,
+    .FinishButton {
+      color: $yellow;
+      background-color: $pink;
+      padding: 10px;
+      font-weight: 600;
+      border-radius: 19px;
+      text-align: center;
+      border-color: $pink;
+      border-style: solid;
+      border-width: 1.5px;
+      margin: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        margin: 5px;
+      }
+    }
+    .Row-1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .Row-2 {
+      padding: 10px;
+    }
+  }
+  .Btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+    padding: 5px;
+  }
+}
+
+.TasksList {
+  table {
+    width: 800px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    background-color: $table-black;
+    color: $blue;
+    text-align: center;
+  }
+
+  th {
+    text-align: left;
+    text-align: center;
+  }
+
+  thead {
+    th {
+      background-color: $blue;
+      color: $yellow;
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+    td {
+      position: relative;
+      &:hover {
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -9999px;
+          bottom: -9999px;
+          background-color: rgba(255, 255, 255, 0.2);
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+.PinkButtonYellowText {
+  // THIS STYLE IS REPEATED MAKE SURE YOU ELIMINATE IT FROM ABOVE
+  color: $yellow;
+  background-color: $pink;
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 19px;
+  text-align: center;
+  border-color: $pink;
+  border-style: solid;
+  border-width: 1.5px;
+  margin: 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.HideIt {
+  display: none;
+}
+
+.FlexIt {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: baseline;
+}
