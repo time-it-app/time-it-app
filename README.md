@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/logo.png" width="100%" />
+  <img src="./assets/images/logo.png" width="50%" />
 </div>
 
 ## Install
