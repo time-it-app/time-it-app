@@ -2,43 +2,56 @@
   <img src="./assets/images/logo.png" width="50%" />
 </div>
 
-## Install
-
+## Installation
 
 ```bash
 git clone https://github.com/itsmais/time-it-app.git
 cd time-it-app
-yarn
+npm install
 ```
 
-## Starting Development
+## Development
 
 Start the app in the `dev` environment:
 
 ```bash
-yarn start
+npm start
 ```
 
 ## Packaging for Production
 
-To package apps for the local platform:
+Before attempting to package the app, add the following to `webpack.config.base.js` in `node_modules`.
+
+```js
+{test: /\.js$/ , loader:'babel-loader', exclude: '/node_modules/'},
+{test: /\.jsx$/ , loader:'babel-loader', exclude: '/node_modules/'}
+```
+To package for the local platform:
 
 ```bash
-yarn package
-```
+npm run-script build
+npm run-script package // yarn package
+```  
 
 ## Docs
 
-Add links to docs.
+Coming soon.
 
 ## Contributing
 
-Write a contributing guide.
+Coming soon.
+
+## Featrures that should be implemented:
+- fix the overall layout - Settings page
+- add an extract data option - Settings page
+- add button loaders / make buttons change when actions are completed - Settings page
+- add a sidebar toggle button
+
 
 ## Developers and Maintainers
 
-- [Mais Hatem](https://github.com/itsmais)
+- [Mais](https://github.com/itsmais)
 
 ## License
 
-GNU
+GNU General Public License. Credits are required for code reuse from this repository.
