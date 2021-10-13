@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/logo.png" width="50%" />
+  <img src="./src/assets/images/logo.png" width="50%" />
 </div>
 
 ## Installation
@@ -15,43 +15,28 @@ npm install
 Start the app in the `dev` environment:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Packaging for Production
 
-Before attempting to package the app, add the following to `webpack.config.base.js` in `node_modules`.
-
-```js
-{test: /\.js$/ , loader:'babel-loader', exclude: '/node_modules/'},
-{test: /\.jsx$/ , loader:'babel-loader', exclude: '/node_modules/'}
-```
-To package for the local platform:
-
+To package the app for the local environment, run:
 ```bash
-npm run-script build
-npm run-script package // yarn package
+npm run package
 ```  
+The output will be placed in the `builds` directory.
 
-## Docs
-
-Coming soon.
 
 ## Contributing
-
-Coming soon.
+Time It is celebrating Hacktoberfest 2021. Feel free to submit a pull request and it will be reviewed within 24 hours. You can also start a discussion before doing that in order to avoid duplications of effort.
 
 ## Featrures that should be implemented:
-- fix the overall layout - Settings page
-- add an extract data option - Settings page
-- add button loaders / make buttons change when actions are completed - Settings page
-- add a sidebar toggle button
+- Add an extract data option to the settings page. Extracted data could be in `.json` or `.csv` forms.
+- Add button loaders to the buttons in the settings page.
+- Add a sidebar toggle button so it's not always showing.
 
-
-## Developers and Maintainers
-
-- [Mais](https://github.com/itsmais)
+## Contact
+For getting in touch, you can drop a DM or a tweet at [@timeit_](https://twitter.com/timeit_).
 
 ## License
-
 GNU General Public License. Credits are required for code reuse from this repository.

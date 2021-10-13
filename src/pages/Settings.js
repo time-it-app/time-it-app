@@ -1,64 +1,82 @@
-/* eslint-disable react/jsx-filename-extension */
 import React, { useEffect, useState } from 'react';
-import Sidebar from './Sidebar';
+import Sidebar from "./Sidebar";
 
 export default function Settings() {
-  const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
+    const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
 
-  function getLocalStorageLength() {
-    return JSON.parse(localStorage.getItem('tasks'))
-      ? JSON.parse(localStorage.getItem('tasks')).length
-      : 0;
-  }
-  useEffect(() => {
-    setIsLocalStorageEmpty(getLocalStorageLength() === 0);
-  });
+    function getLocalStorageLength() {
+        return JSON.parse(localStorage.getItem('tasks'))
+            ? JSON.parse(localStorage.getItem('tasks')).length
+            : 0;
+    }
 
-  function clearLocalStorageData() {
-    localStorage.clear();
-    setIsLocalStorageEmpty(true);
-  }
+    useEffect(() => {
+        setIsLocalStorageEmpty(getLocalStorageLength() === 0);
+    });
 
-  function textToClipboard(text) {
-    const temp = document.createElement('textarea');
-    document.body.appendChild(temp);
-    temp.value = text;
-    temp.select();
-    document.execCommand('copy');
-    document.body.removeChild(temp);
-  }
+    function clearLocalStorageData() {
+        localStorage.clear();
+        setIsLocalStorageEmpty(true);
+    }
 
-  return (
-    <>
-      <Sidebar />
-      <div className="Settings">
-        <div className="SettingsHeader">
-          <h2>Settings</h2>
-        </div>
-        <div className="SettingsContent">
-          <div className="Row">
-            <div className="InstructionText">Delete all current tasks data</div>
-            <button
-              className={`${
-                isLocalStorageEmpty
-                  ? 'GreyButtonBlueText'
-                  : 'PinkButtonYellowText'
-              }`}
-              onClick={clearLocalStorageData}
-            >
-              delete tasks
-            </button>
-          </div>
-          <div className="Row">
-            <div className="InstructionText">Copy tasks data to clipboard</div>
-            <button
-              className="PinkButtonYellowText"
-              onClick={textToClipboard(localStorage.getItem('tasks'))}
-            >
-              copy task data
-            </button>
-          </div>
-          {/* <div className="Row">
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+    function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function replaceAll(str, match, replacement) {
+        return str.replace(new RegExp(escapeRegExp(match), 'g'), () => replacement);
+    }
+
+    function localStorageTextToClipboard(text) {
+        if (text != null) {
+            let newText = text.toString();
+            // formatting copied output
+            newText = replaceAll(text, '[{', '');
+            newText = replaceAll(newText, '}]', '');
+            newText = replaceAll(newText, '{', '\n');
+            newText = replaceAll(newText, '}', '');
+            newText = replaceAll(newText, ',', '\n');
+            const temp = document.createElement('textarea');
+            document.body.appendChild(temp);
+            temp.value = newText;
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+        }
+
+    }
+
+    return (
+        <div className="Flex-wide-container">
+            <Sidebar />
+            <div className="Settings">
+                <div className="SettingsHeader">
+                    <h2>Settings</h2>
+                </div>
+                <div className="SettingsContent">
+                    <div className="Row">
+                        <div className="InstructionText">Delete all current tasks data</div>
+                        <button
+                            className={`${isLocalStorageEmpty
+                                ? 'GreyButtonBlueText'
+                                : 'PinkButtonYellowText'
+                                }`}
+                            onClick={clearLocalStorageData}
+                        >
+                            delete tasks
+                        </button>
+                    </div>
+                    <div className="Row">
+                        <div className="InstructionText">Copy tasks data to clipboard</div>
+                        <button
+                            className="PinkButtonYellowText"
+                            onClick={localStorageTextToClipboard(localStorage.getItem('tasks'))}
+                        >
+                            copy task data
+                        </button>
+                    </div>
+                    {/* <div className="Row">
             <div className="InstructionText">Change color mode</div>
             <button className="PinkButtonYellowText">
               coming soon
@@ -70,8 +88,8 @@ export default function Settings() {
               comnig soon
             </button>
           </div> */}
+                </div>
+            </div>
         </div>
-      </div>
-    </>
-  );
+    );
 }
