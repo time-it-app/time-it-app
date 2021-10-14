@@ -41,3 +41,8 @@ For developer discussion, feel free to join our [Discord community](https://disc
 
 ## 📃 License
 GNU General Public License. Credits are required for code reuse from this repository.
+
+## 🎖 Contributors
+<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=time-it-app/time-it-app"/>
+</a>
