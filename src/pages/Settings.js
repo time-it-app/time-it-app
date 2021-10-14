@@ -3,7 +3,8 @@ import Sidebar from "./Sidebar";
 
 export default function Settings() {
     const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
-
+    const [isLoadingDelete, setIsLoadingDelete] = useState(false);
+    const [isLoadingCopy, setIsLoadingCopy] = useState(false);
     function getLocalStorageLength() {
         return JSON.parse(localStorage.getItem('tasks'))
             ? JSON.parse(localStorage.getItem('tasks')).length
@@ -17,6 +18,10 @@ export default function Settings() {
     function clearLocalStorageData() {
         localStorage.clear();
         setIsLocalStorageEmpty(true);
+        if(!isLocalStorageEmpty){
+        setTimeout(function(){ setIsLoadingDelete(false); }, 1500);
+        setIsLoadingDelete(true);
+        }
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
@@ -43,8 +48,10 @@ export default function Settings() {
             temp.select();
             document.execCommand('copy');
             document.body.removeChild(temp);
+            setTimeout(function(){ setIsLoadingCopy(false); }, 1500);
+            setIsLoadingCopy(true);
         }
-
+        
     }
 
     return (
@@ -57,7 +64,9 @@ export default function Settings() {
                 <div className="SettingsContent">
                     <div className="Row">
                         <div className="InstructionText">Delete all current tasks data</div>
-                        <button
+                        {isLoadingDelete 
+                        ? <div className="loader" /> 
+                        : <button
                             className={`${isLocalStorageEmpty
                                 ? 'GreyButtonBlueText'
                                 : 'PinkButtonYellowText'
@@ -65,16 +74,18 @@ export default function Settings() {
                             onClick={clearLocalStorageData}
                         >
                             delete tasks
-                        </button>
+                        </button>}
                     </div>
                     <div className="Row">
                         <div className="InstructionText">Copy tasks data to clipboard</div>
-                        <button
+                        {isLoadingCopy 
+                        ? <div className="loader" /> 
+                        : <button
                             className="PinkButtonYellowText"
-                            onClick={localStorageTextToClipboard(localStorage.getItem('tasks'))}
-                        >
+                            onClick={ () => localStorageTextToClipboard(localStorage.getItem('tasks'))}
+                          >
                             copy task data
-                        </button>
+                        </button>}
                     </div>
                     {/* <div className="Row">
             <div className="InstructionText">Change color mode</div>
