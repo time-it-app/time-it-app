@@ -11,8 +11,7 @@ export default function Sidebar() {
 	};
 
 	return (
-		<div>
-			<BurgerMenu active={active} toggleSidebar={isSideBarActive} />
+		<div className="Navigation">
 			<div className={active ? "Sidebar active" : "Sidebar"}>
 				<div className="App-logo">
 					<img src={AppLogo} alt="app logo" />
@@ -29,6 +28,7 @@ export default function Sidebar() {
 					</Link>
 				</div>
 			</div>
+			<BurgerMenu active={active} toggleSidebar={isSideBarActive} />
 		</div>
 	);
 }

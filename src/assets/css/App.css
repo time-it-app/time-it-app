@@ -218,6 +218,11 @@ button:focus {
 	transform: rotate(45deg) translate(-8px, -6px);
 }
 
+/*Left Navigation including sidebar and menu icon*/
+.Navigation {
+	display: flex;
+}
+
 .Menu-item {
 	margin: 20px 0;
 	color: var(--yellow);
