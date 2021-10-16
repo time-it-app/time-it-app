@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar";
 export default function Settings() {
   const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
   const [downloadUrl, setDownloadURl] = useState("");
+  const [isLoadingDelete, setIsLoadingDelete] = useState(false);
+  const [isLoadingCopy, setIsLoadingCopy] = useState(false);
 
   function getLocalStorageLength() {
     return JSON.parse(localStorage.getItem("tasks"))
@@ -18,6 +20,12 @@ export default function Settings() {
   function clearLocalStorageData() {
     localStorage.clear();
     setIsLocalStorageEmpty(true);
+    if (!isLocalStorageEmpty) {
+      setTimeout(function () {
+        setIsLoadingDelete(false);
+      }, 1500);
+      setIsLoadingDelete(true);
+    }
   }
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
@@ -48,6 +56,10 @@ export default function Settings() {
 
       let blob1 = new Blob([newText], { type: "application/pdf" });
       setDownloadURl(URL.createObjectURL(blob1));
+      setTimeout(function () {
+        setIsLoadingCopy(false);
+      }, 1500);
+      setIsLoadingCopy(true);
 
       //   let downloadContent = {
       //     content: [newText],
@@ -78,16 +90,19 @@ export default function Settings() {
             </button>
           </div>
           <div className="Row">
-            <div className="InstructionText">Copy tasks data to clipboard</div>
-
-            <a
-              className="PinkButtonYellowText"
-              onClick={() => downloadTasks(localStorage.getItem("tasks"))}
-              download="tasks.txt"
-              href={downloadUrl}
-            >
-              Download Tasks
-            </a>
+            <div className="InstructionText">Download Tasks as text</div>
+            {isLoadingCopy ? (
+              <div className="loader" />
+            ) : (
+              <a
+                className="PinkButtonYellowText"
+                onClick={() => downloadTasks(localStorage.getItem("tasks"))}
+                download="tasks.txt"
+                href={downloadUrl}
+              >
+                Download Tasks
+              </a>
+            )}
           </div>
           {/* <div className="Row">
             <div className="InstructionText">Change color mode</div>
