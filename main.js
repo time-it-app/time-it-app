@@ -16,7 +16,7 @@ if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) |
 }
 
 const RESOURCES_PATH = app.isPackaged
-    ? path.join(process.resourcesPath, 'assets')
+    ? path.join(process.resourcesPath, '/app/src/assets')
     : path.join(__dirname, './src/assets');
 
 function getAssetPath (str) {
