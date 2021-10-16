@@ -11,8 +11,8 @@ export default function Sidebar() {
 	};
 
 	return (
-		<div className="Navigation">
-			<div className={active ? "Sidebar active" : "Sidebar"}>
+		<div className={active ? "Navigation active" : "Navigation"}>
+			<div className="Sidebar">
 				<div className="App-logo">
 					<img src={AppLogo} alt="app logo" />
 				</div>

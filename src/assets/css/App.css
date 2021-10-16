@@ -91,6 +91,7 @@ button:focus {
 	display: flex;
 	width: 100%;
 	flex-direction: column;
+	position: absolute;
 }
 
 .TasksList .Container {
@@ -161,6 +162,19 @@ button:focus {
 	-webkit-appearance: none;
 }
 
+/*Left Navigation including sidebar and menu icon*/
+.Navigation {
+	display: flex;
+	transform: translate(-84%);
+	transition: 400ms linear;
+	z-index: 999;
+}
+
+/* When sidebar is active */
+.active.Navigation {
+	transform: translate(0);
+}
+
 /* When sidebar is inactive */
 .Sidebar {
 	background: var(--blue);
@@ -172,13 +186,6 @@ button:focus {
 	width: 200px;
 	height: 90vh;
 	font-weight: bold;
-	transform: translate(-100%);
-	transition: 400ms linear;
-}
-
-/* When sidebar is active */
-.active.Sidebar {
-	transform: translate(0);
 }
 
 .Sidebar .App-logo img {
@@ -194,15 +201,24 @@ button:focus {
 .burger-menu {
 	cursor: pointer;
 	width: 30px;
+	height: 30px;
+	padding: 10px;
+	background-color: var(--blue);
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+}
+
+.bar1,
+.bar2 {
+	margin-bottom: 5px;
 }
 
 .bar1,
 .bar2,
 .bar3 {
-	margin: 5px 10px;
 	width: 30px;
 	height: 5px;
-	background-color: black;
+	background-color: white;
 	transition: 400ms;
 }
 
@@ -216,11 +232,6 @@ button:focus {
 
 .active .bar3 {
 	transform: rotate(45deg) translate(-8px, -6px);
-}
-
-/*Left Navigation including sidebar and menu icon*/
-.Navigation {
-	display: flex;
 }
 
 .Menu-item {
