@@ -54,12 +54,12 @@ export default function Settings() {
       document.execCommand("copy");
       document.body.removeChild(temp);
 
-      let blob1 = new Blob([newText], { type: "application/pdf" });
+      let blob1 = new Blob([newText], { type: "text/plain" });
       setDownloadURl(URL.createObjectURL(blob1));
-      setTimeout(function () {
-        setIsLoadingCopy(false);
-      }, 1500);
-      setIsLoadingCopy(true);
+      // setTimeout(function () {
+      //   setIsLoadingCopy(false);
+      // }, 1500);
+      // setIsLoadingCopy(true);
 
       //   let downloadContent = {
       //     content: [newText],
