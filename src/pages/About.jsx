@@ -1,20 +1,19 @@
-/* eslint-disable react/jsx-filename-extension */
-import React from 'react';
-import Sidebar from './Sidebar';
-
-import {shell} from 'electron';
+import React from "react";
+import Sidebar from "../components/Sidebar.jsx";
 
 export default function About() {
     function directToTwitterAccount(e) {
-        shell.openExternal('https://twitter.com/timeit_');
+        window.TimeElectronAPI.openWebPage("https://twitter.com/timeit_");
     }
 
     function directToWebsite(e) {
-        shell.openExternal('https://time-it.co/');
+        window.TimeElectronAPI.openWebPage("https://time-it.co/");
     }
 
     function directToGitHub(e) {
-        shell.openExternal('https://github.com/itsmais/time-it-app');
+        window.TimeElectronAPI.openWebPage(
+            "https://github.com/itsmais/time-it-app"
+        );
     }
 
     return (
@@ -26,7 +25,8 @@ export default function About() {
                 </div>
                 <div className="AboutContent">
                     <p>
-                        Time It v1.0.0 (beta) is an open source project to help you time track your work tasks. <br/>
+                        Time It v1.0.0 (beta) is an open source project to help you time
+                        track your work tasks. <br/>
                         It is free and privacy friendly.
                     </p>
                     <p>

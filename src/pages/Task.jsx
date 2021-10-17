@@ -1,7 +1,5 @@
-/* eslint-disable react/jsx-filename-extension */
-import React from "react";
-import { useState, useRef, useEffect } from "react";
-import { Link, useHistory, withRouter } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import StartIcon from "../assets/icons/start.svg";
 import PauseIcon from "../assets/icons/pause.svg";
 import ResetIcon from "../assets/icons/reset.svg";
@@ -10,9 +8,6 @@ import MinimizeIcon from "../assets/icons/minimize.svg";
 import MaximizeIcon from "../assets/icons/maximize.svg";
 
 let startTime;
-const { remote } = require("electron");
-
-const win = remote.getCurrentWindow();
 
 const useTimer = (initialState = 0) => {
   const [timer, setTimer] = useState(initialState);
@@ -87,12 +82,12 @@ export default function Task() {
 
   const changeWindowSize = () => {
     if (isMinimized) {
-      win.setBounds({
+      window.TimeElectronAPI.changeSizeWindow({
         width: 299,
         height: 95,
       });
     } else {
-      win.setBounds({
+      window.TimeElectronAPI.changeSizeWindow({
         width: 299,
         height: 510,
       });
@@ -102,7 +97,7 @@ export default function Task() {
   changeWindowSize();
 
   const minimizeWindow = () => {
-    win.setAlwaysOnTop(!isMinimized, "screen");
+    window.TimeElectronAPI.setAlwaysTop(!isMinimized);
     setIsMinimized(!isMinimized);
   };
 
@@ -204,7 +199,7 @@ export default function Task() {
                   totalFee: getTotalFee(timer, taskFee),
                 });
                 localStorage.setItem("tasks", JSON.stringify(tasks));
-                win.setBounds({
+                window.TimeElectronAPI.changeSizeWindow({
                   width: 1250,
                   height: 660,
                 });

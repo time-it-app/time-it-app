@@ -1,13 +1,7 @@
-/* eslint-disable react/jsx-filename-extension */
-import React, {useEffect, useState} from 'react';
-import TasksListHeader from './TasksListHeader';
-import Sidebar from './Sidebar';
-import Pagination from './Pagination';
-
-// import DeleteIcon from '../../assets/icons/delete.svg';
-const {remote} = require('electron');
-
-const win = remote.getCurrentWindow();
+import React, {useEffect, useState} from "react";
+import Sidebar from "./Sidebar.jsx";
+import TasksListHeader from "./TasksListHeader.jsx";
+import Pagination from "./Pagination.jsx";
 
 export default function TasksList() {
     const [tasks, setTasks] = useState([]);
@@ -21,15 +15,15 @@ export default function TasksList() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     useEffect(() => {
-        const data = localStorage.getItem('tasks');
+        const data = localStorage.getItem("tasks");
         if (data) {
             setTasks(JSON.parse(data));
         }
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        win.setBounds({
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        window.TimeElectronAPI.changeSizeWindow({
             width: 1250,
             height: 660,
         });

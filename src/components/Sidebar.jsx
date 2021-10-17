@@ -1,6 +1,6 @@
-import React from 'react';
-import AppLogo from '../assets/images/logo.png';
-import {Link} from 'react-router-dom';
+import React from "react";
+import AppLogo from "../assets/images/logo.png";
+import {Link} from "react-router-dom";
 
 export default function Sidebar() {
     return (

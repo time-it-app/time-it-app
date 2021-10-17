@@ -15,7 +15,7 @@ npm install
 Start the app in the `dev` environment:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ## 💿 Packaging for Production
@@ -24,7 +24,7 @@ To package the app for the local environment, run:
 ```bash
 npm run package
 ```  
-The output will be placed in the `builds` directory.
+The output will be placed in the `out` directory.
 
 ## 🤝 Contributing
 Time It is celebrating Hacktoberfest 2021 🎉. Feel free to submit a pull request and it will be reviewed within 24 hours. You can also start a discussion before doing that in order to avoid duplications of effort.
