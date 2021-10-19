@@ -29,7 +29,7 @@
 import "./assets/css/App.css";
 
 import * as React from "react";
-import { render } from "react-dom";
+import {render} from "react-dom";
 import App from "./components/App.jsx";
 
 // Now we can render our application into it

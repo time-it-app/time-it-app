@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AppLogo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
-import BurgerMenu from "../pages/BurgerMenu";
+import BurgerMenu from "./BurgerMenu.jsx";
 
 export default function Sidebar() {
   const [active, setActive] = useState(true);
@@ -18,13 +18,13 @@ export default function Sidebar() {
         </div>
         <div className="Menu">
           <Link to="/">
-            <div className="Menu-item"> Tasks </div>
+            <div className="Menu-item"> Tasks</div>
           </Link>
           <Link to="/settings">
-            <div className="Menu-item"> Settings </div>
+            <div className="Menu-item"> Settings</div>
           </Link>
           <Link to="/about">
-            <div className="Menu-item"> About </div>
+            <div className="Menu-item"> About</div>
           </Link>
         </div>
       </div>
