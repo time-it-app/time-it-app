@@ -1,5 +1,5 @@
-import React from 'react';
-import TasksList from './TasksList';
+import React from "react";
+import TasksList from "../components/TasksList.jsx";
 
 export default function MainPage() {
   return (

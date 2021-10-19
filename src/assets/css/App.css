@@ -1,32 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Dawning+of+a+New+Day&family=Jura:wght@300;400;500;600;700&family=VT323&display=swap");
 
 @font-face {
-	font-family: "PrimaSans";
-	src: url("../fonts/primasansmonobt-roman.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+    font-family: "PrimaSans";
+    src: url("../fonts/primasansmonobt-roman.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 :root {
-	--pink: #fc5185;
-	--blue: #364f6b;
-	--cyan: #3fc1c9;
-	--yellow: #fce38a;
-	--white: #f4fafa;
-	--table-black: rgba(255, 255, 255, 0.2);
+    --pink: #fc5185;
+    --blue: #364f6b;
+    --cyan: #3fc1c9;
+    --yellow: #fce38a;
+    --white: #f4fafa;
+    --table-black: rgba(255, 255, 255, 0.2);
 }
 
 .drag {
-	-webkit-app-region: drag;
+    -webkit-app-region: drag;
 }
 
 .no-drag {
-	-webkit-app-region: no-drag;
+    -webkit-app-region: no-drag;
 }
 
 .Flex-wide-container {
-	display: flex;
-	width: 100%;
+    display: flex;
+    width: 100%;
 }
 
 /*
@@ -38,219 +38,219 @@ font-family: 'PrimaSans';
 */
 
 * {
-	font-family: "PrimaSans", monospace;
-	-webkit-user-select: none;
+    font-family: "PrimaSans", monospace;
+    -webkit-user-select: none;
 }
 
 a,
 button {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .Btns img {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 body,
 html {
-	background-color: var(--white);
-	padding: 0;
-	margin: 0;
-	height: 100%;
+    background-color: var(--white);
+    padding: 0;
+    margin: 0;
+    height: 100%;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
 button:focus {
-	outline: none;
+    outline: none;
 }
 
 .TasksListContainer {
-	display: flex;
+    display: flex;
 }
 
 .Pagination ul {
-	list-style-type: none;
-	display: flex;
+    list-style-type: none;
+    display: flex;
 }
 
 .Pagination li {
-	list-style-type: none;
-	padding: 10px;
-	cursor: pointer;
-	color: var(--blue);
+    list-style-type: none;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--blue);
 }
 
 .Pagination li:hover {
-	background-color: var(--pink);
-	color: var(--yellow);
+    background-color: var(--pink);
+    color: var(--yellow);
 }
 
 .TasksList {
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	position: absolute;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
 }
 
 .TasksList .Container {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .TasksListHeader {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	color: var(--blue);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--blue);
 }
 
 .TasksListHeader .NewTaskBtn {
-	background-color: var(--pink);
-	color: var(--yellow);
-	padding: 12px;
-	border-radius: 20px;
-	border: none;
-	cursor: pointer;
+    background-color: var(--pink);
+    color: var(--yellow);
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
 }
 
 .TasksListHeader .BackBtn {
-	justify-content: center;
-	align-items: center;
-	display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .TasksListDetails {
-	color: var(--blue);
-	display: flex;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
+    color: var(--blue);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .TasksListDetails .Col {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .TasksListDetails textarea:nth-child(2n),
 .TaskId:nth-child(2n) {
-	background: var(--yellow);
+    background: var(--yellow);
 }
 
 .TasksListDetails textarea,
 .TaskId {
-	width: 90px;
-	height: 50px;
-	word-wrap: break-word;
-	word-break: break-all;
-	padding: 5px 5px;
-	margin: 5px 0;
-	background: none;
-	border: none;
-	text-align: center;
-	color: var(--blue);
+    width: 90px;
+    height: 50px;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 5px 5px;
+    margin: 5px 0;
+    background: none;
+    border: none;
+    text-align: center;
+    color: var(--blue);
 }
 
 .TasksListDetails textarea::-webkit-calendar-picker-indicator {
-	display: none;
-	-webkit-appearance: none;
+    display: none;
+    -webkit-appearance: none;
 }
 
 /*Left Navigation including sidebar and menu icon*/
 .Navigation {
-	display: flex;
-	transform: translate(-84%);
-	transition: 400ms linear;
-	z-index: 999;
+    display: flex;
+    transform: translate(-84%);
+    transition: 400ms linear;
+    z-index: 999;
 }
 
 /* When sidebar is active */
 .active.Navigation {
-	transform: translate(0);
+    transform: translate(0);
 }
 
 /* When sidebar is inactive */
 .Sidebar {
-	background: var(--blue);
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	width: 200px;
-	height: 90vh;
-	font-weight: bold;
+    background: var(--blue);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 90vh;
+    font-weight: bold;
 }
 
 .Sidebar .App-logo img {
-	width: 150px;
-	margin-bottom: 40px;
+    width: 150px;
+    margin-bottom: 40px;
 }
 
 .Sidebar .Menu a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 /* Burger Menu CSS */
 .burger-menu {
-	cursor: pointer;
-	width: 30px;
-	height: 30px;
-	padding: 10px;
-	background-color: var(--blue);
-	border-top-right-radius: 0.5rem;
-	border-bottom-right-radius: 0.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    background-color: var(--blue);
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .bar1,
 .bar2 {
-	margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .bar1,
 .bar2,
 .bar3 {
-	width: 30px;
-	height: 5px;
-	background-color: white;
-	transition: 400ms;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    transition: 400ms;
 }
 
 .active .bar1 {
-	transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
 }
 
 .active .bar2 {
-	opacity: 0;
+    opacity: 0;
 }
 
 .active .bar3 {
-	transform: rotate(45deg) translate(-8px, -6px);
+    transform: rotate(45deg) translate(-8px, -6px);
 }
 
 .Menu-item {
-	margin: 20px 0;
-	color: var(--yellow);
+    margin: 20px 0;
+    color: var(--yellow);
 }
 
 .MainPage {
-	display: flex;
-	width: 100%;
-	justify-content: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .Settings {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	color: var(--blue);
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--blue);
+    align-items: center;
 }
 
 .SettingsContent .Row {
@@ -262,63 +262,63 @@ button:focus {
 }
 
 .SettingsContent .InstructionText {
-	font-size: larger;
+    font-size: larger;
 }
 
 .About {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	align-items: center;
-	color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    color: var(--blue);
 }
 
 .About .AboutContent {
-	padding: 0 40px 40px 40px;
+    padding: 0 40px 40px 40px;
 }
 
 .About a {
-	color: var(--pink);
+    color: var(--pink);
 }
 
 .Task {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	/*justify-content: center;*/
-	color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*justify-content: center;*/
+    color: var(--blue);
 }
 
 .Task .TaskDetails {
-	text-align: center;
+    text-align: center;
 }
 
 .Task .Time {
-	padding: 10px;
-	font-size: 30px;
-	text-align: center;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
 }
 
 .TaskHourlyFeeInput,
 .TaskNameInput {
-	padding: 10px;
-	border-radius: 19px;
-	text-align: center;
-	border-color: var(--blue);
-	border-style: solid;
-	border-width: 2px;
-	color: var(--blue);
+    padding: 10px;
+    border-radius: 19px;
+    text-align: center;
+    border-color: var(--blue);
+    border-style: solid;
+    border-width: 2px;
+    color: var(--blue);
 }
 
 .TaskHourlyFeeInput {
-	width: 40px;
+    width: 40px;
 }
 
 .Controllers {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .StartButton,
@@ -326,20 +326,20 @@ button:focus {
 .ResumeButton,
 .ResetButton,
 .FinishButton {
-	color: var(--yellow);
-	background-color: var(--pink);
-	padding: 10px;
-	font-weight: 600;
-	border-radius: 19px;
-	text-align: center;
-	border-color: var(--pink);
-	border-style: solid;
-	border-width: 2px;
-	margin: 10px;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    color: var(--yellow);
+    background-color: var(--pink);
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 19px;
+    text-align: center;
+    border-color: var(--pink);
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .StartButton img,
@@ -347,118 +347,118 @@ button:focus {
 .ResumeButton img,
 .ResetButton img,
 .FinishButton img {
-	margin: 5px;
+    margin: 5px;
 }
 
 .Row-1 {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Row-2 {
-	padding: 10px;
+    padding: 10px;
 }
 
 .Btns {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: end;
-	padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+    padding: 5px;
 }
 
 .TasksList table {
-	width: 800px;
-	border-collapse: collapse;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	border-radius: 15px;
+    width: 800px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
 }
 
 .TasksList th,
 td {
-	padding: 15px;
-	background-color: var(--table-black);
-	color: var(--blue);
-	text-align: center;
+    padding: 15px;
+    background-color: var(--table-black);
+    color: var(--blue);
+    text-align: center;
 }
 
 .TasksList th {
-	text-align: left;
-	text-align: center;
+    text-align: left;
+    text-align: center;
 }
 
 .TasksList thead th {
-	background-color: var(--blue);
-	color: var(--yellow);
+    background-color: var(--blue);
+    color: var(--yellow);
 }
 
 tbody tr:hover {
-	background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 tbody td {
-	position: relative;
+    position: relative;
 }
 
 tbody td:hover:before {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -9999px;
-	bottom: -9999px;
-	background-color: rgba(255, 255, 255, 0.2);
-	z-index: -1;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
 }
 
 .PinkButtonYellowText {
-	/*THIS STYLE IS REPEATED MAKE SURE YOU ELIMINATE IT FROM ABOVE*/
-	color: var(--yellow);
-	background-color: var(--pink);
-	padding: 10px;
-	font-weight: 600;
-	border-radius: 19px;
-	text-align: center;
-	border-color: var(--pink);
-	border-style: solid;
-	border-width: 1.5px;
-	margin: 10px;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    /*THIS STYLE IS REPEATED MAKE SURE YOU ELIMINATE IT FROM ABOVE*/
+    color: var(--yellow);
+    background-color: var(--pink);
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 19px;
+    text-align: center;
+    border-color: var(--pink);
+    border-style: solid;
+    border-width: 1.5px;
+    margin: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .GreyButtonBlueText {
-	/*deactivated button*/
-	color: var(--blue);
-	background-color: lightgray;
-	cursor: not-allowed;
-	padding: 10px;
-	font-weight: 600;
-	border-radius: 19px;
-	text-align: center;
-	border-color: lightgray;
-	border-style: solid;
-	border-width: 1.5px;
-	margin: 10px;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    /*deactivated button*/
+    color: var(--blue);
+    background-color: lightgray;
+    cursor: not-allowed;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 19px;
+    text-align: center;
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 1.5px;
+    margin: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .HideIt {
-	display: none;
+    display: none;
 }
 
 .FlexIt {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-around;
-	align-items: baseline;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: baseline;
 }
 
 .loader {
@@ -470,14 +470,23 @@ tbody td:hover:before {
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 1.5s linear infinite;
     margin: auto;
-  }
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

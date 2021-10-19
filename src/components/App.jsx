@@ -1,10 +1,9 @@
 import React from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
-import "../assets/css/App.css";
-import About from "../pages/About";
-import MainPage from "../pages/MainPage";
-import Settings from "../pages/Settings";
-import Task from "../pages/Task";
+import MainPage from "../pages/MainPage.jsx";
+import About from "../pages/About.jsx";
+import Settings from "../pages/Settings.jsx";
+import Task from "../pages/Task.jsx";
 
 export default function App() {
   return (

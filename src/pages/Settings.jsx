@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "../components/Sidebar.jsx";
 
 export default function Settings() {
-
   const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
   const [downloadUrl, setDownloadURl] = useState("");
   const [isLoadingDelete, setIsLoadingDelete] = useState(false);
@@ -14,11 +13,9 @@ export default function Settings() {
       : 0;
   }
 
-
   useEffect(() => {
     setIsLocalStorageEmpty(getLocalStorageLength() === 0);
   }, []);
-
 
   function clearLocalStorageData() {
     localStorage.clear();
@@ -28,7 +25,6 @@ export default function Settings() {
         setIsLoadingDelete(false);
       }, 1500);
       setIsLoadingDelete(true);
-
     }
   }
 
@@ -40,7 +36,6 @@ export default function Settings() {
   function replaceAll(str, match, replacement) {
     return str.replace(new RegExp(escapeRegExp(match), "g"), () => replacement);
   }
-
 
   function downloadTasks(text) {
     console.log(text);
@@ -70,7 +65,6 @@ export default function Settings() {
       //     content: [newText],
       //   };
       //   pdfMake.createPdf(docDefinition).download();
-
     }
   }
 
