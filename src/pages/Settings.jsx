@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar.jsx";
 
 export default function Settings() {
   const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
-  const [downloadUrl, setDownloadURl] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState("");
   const [isLoadingDelete, setIsLoadingDelete] = useState(false);
   const [isLoadingCopy, setIsLoadingCopy] = useState(false);
 
@@ -37,34 +37,13 @@ export default function Settings() {
     return str.replace(new RegExp(escapeRegExp(match), "g"), () => replacement);
   }
 
-  function downloadTasks(text) {
-    console.log(text);
-    if (text != null) {
-      let newText = text.toString();
-      // formatting copied output
-      newText = replaceAll(text, "[{", "");
-      newText = replaceAll(newText, "}]", "");
-      newText = replaceAll(newText, "{", "\n");
-      newText = replaceAll(newText, "}", "");
-      newText = replaceAll(newText, ",", "\n");
-      const temp = document.createElement("textarea");
-      document.body.appendChild(temp);
-      temp.value = newText;
-      temp.select();
-      document.execCommand("copy");
-      document.body.removeChild(temp);
+  function downloadTasks(tasks) {
+    if (tasks) {
+      const json = JSON.parse(tasks);
+      const jsonStr = JSON.stringify(json, null, 2);
+      const blob = new Blob([jsonStr], { type: "application/json" });
 
-      let blob1 = new Blob([newText], { type: "text/plain" });
-      setDownloadURl(URL.createObjectURL(blob1));
-      // setTimeout(function () {
-      //   setIsLoadingCopy(false);
-      // }, 1500);
-      // setIsLoadingCopy(true);
-
-      //   let downloadContent = {
-      //     content: [newText],
-      //   };
-      //   pdfMake.createPdf(docDefinition).download();
+      setDownloadUrl(URL.createObjectURL(blob));
     }
   }
 
@@ -97,7 +76,7 @@ export default function Settings() {
               <a
                 className="PinkButtonYellowText"
                 onClick={() => downloadTasks(localStorage.getItem("tasks"))}
-                download="tasks.txt"
+                download="tasks.json"
                 href={downloadUrl}
               >
                 Download Tasks
