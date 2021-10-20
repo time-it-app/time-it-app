@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar.jsx";
+import { formatDate } from "../util/date";
 
 export default function Settings() {
   const [isLocalStorageEmpty, setIsLocalStorageEmpty] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState("");
+  const [tasksFileName, setTasksFileName] = useState("tasks.json");
   const [isLoadingDelete, setIsLoadingDelete] = useState(false);
   const [isLoadingCopy, setIsLoadingCopy] = useState(false);
 
@@ -42,8 +44,10 @@ export default function Settings() {
       const json = JSON.parse(tasks);
       const jsonStr = JSON.stringify(json, null, 2);
       const blob = new Blob([jsonStr], { type: "application/json" });
+      const currentDate = formatDate('ddMMyyyy_hhmmss', new Date());
 
       setDownloadUrl(URL.createObjectURL(blob));
+      setTasksFileName(`tasks_${currentDate}.json`);
     }
   }
 
@@ -76,7 +80,7 @@ export default function Settings() {
               <a
                 className="PinkButtonYellowText"
                 onClick={() => downloadTasks(localStorage.getItem("tasks"))}
-                download="tasks.json"
+                download={tasksFileName}
                 href={downloadUrl}
               >
                 Download Tasks
