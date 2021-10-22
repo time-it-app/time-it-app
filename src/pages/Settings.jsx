@@ -7,7 +7,6 @@ export default function Settings() {
   const [downloadUrl, setDownloadUrl] = useState("");
   const [tasksFileName, setTasksFileName] = useState("tasks.json");
   const [isLoadingDelete, setIsLoadingDelete] = useState(false);
-  const [isLoadingCopy, setIsLoadingCopy] = useState(false);
 
   function getLocalStorageLength() {
     return JSON.parse(localStorage.getItem("tasks"))
@@ -39,12 +38,35 @@ export default function Settings() {
     return str.replace(new RegExp(escapeRegExp(match), "g"), () => replacement);
   }
 
-  function downloadTasks(tasks) {
+  function downloadTasksAsText(tasks) {
+    if (tasks) {
+      let newText = tasks.toString();
+      // formatting copied output
+      newText = replaceAll(newText, "[{", "");
+      newText = replaceAll(newText, "}]", "");
+      newText = replaceAll(newText, "{", "\n");
+      newText = replaceAll(newText, "}", "");
+      newText = replaceAll(newText, ",", "\n");
+      const temp = document.createElement("textarea");
+      document.body.appendChild(temp);
+      temp.value = newText;
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
+
+      const blob = new Blob([newText], { type: "text/plain" });
+      const currentDate = formatDate("ddMMyyyy_hhmmss", new Date());
+      setDownloadUrl(URL.createObjectURL(blob));
+      setTasksFileName(`tasks_${currentDate}.txt`);
+    }
+  }
+
+  function downloadTasksAsJSON(tasks) {
     if (tasks) {
       const json = JSON.parse(tasks);
       const jsonStr = JSON.stringify(json, null, 2);
       const blob = new Blob([jsonStr], { type: "application/json" });
-      const currentDate = formatDate('ddMMyyyy_hhmmss', new Date());
+      const currentDate = formatDate("ddMMyyyy_hhmmss", new Date());
 
       setDownloadUrl(URL.createObjectURL(blob));
       setTasksFileName(`tasks_${currentDate}.json`);
@@ -74,18 +96,25 @@ export default function Settings() {
           </div>
           <div className="Row">
             <div className="InstructionText">Download Tasks as text</div>
-            {isLoadingCopy ? (
-              <div className="loader" />
-            ) : (
-              <a
-                className="PinkButtonYellowText"
-                onClick={() => downloadTasks(localStorage.getItem("tasks"))}
-                download={tasksFileName}
-                href={downloadUrl}
-              >
-                Download Tasks
-              </a>
-            )}
+            <a
+              className="PinkButtonYellowText"
+              onClick={() => downloadTasksAsText(localStorage.getItem("tasks"))}
+              download={tasksFileName}
+              href={downloadUrl}
+            >
+              Download TXT
+            </a>
+          </div>
+          <div className="Row">
+            <div className="InstructionText">Download Tasks as JSON</div>
+            <a
+              className="PinkButtonYellowText"
+              onClick={() => downloadTasksAsJSON(localStorage.getItem("tasks"))}
+              download={tasksFileName}
+              href={downloadUrl}
+            >
+              Download JSON
+            </a>
           </div>
           {/* <div className="Row">
 
