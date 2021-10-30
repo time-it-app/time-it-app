@@ -20,6 +20,4 @@ jobs:
       - name: install dependencies
         run: npm install
       - name: build
-        run: npm run package
-      - name: make distributable
         run: npm run make-mac
