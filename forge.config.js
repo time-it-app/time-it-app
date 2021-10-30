@@ -9,12 +9,10 @@ module.exports = {
     //         "name": "my_new_app"
     //     }
     // },
-    // {
-    //     "name": "@electron-forge/maker-zip",
-    //     "platforms": [
-    //         "darwin"
-    //     ]
-    // },
+    {
+      name: "@electron-forge/maker-zip",
+      platforms: ["darwin"],
+    },
     // {
     //     "name": "@electron-forge/maker-deb",
     //     "config": {}
