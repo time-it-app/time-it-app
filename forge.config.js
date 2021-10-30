@@ -24,6 +24,16 @@ module.exports = {
     //     "config": {}
     // }
   ],
+  publishers: [
+    {
+      name: "@electron-forge/publisher-github",
+      config: {
+        owner: "Mais Hatem",
+        name: "time-it-app",
+      },
+      draft: true,
+    },
+  ],
   plugins: [
     [
       "@electron-forge/plugin-webpack",
