@@ -28,6 +28,10 @@ module.exports = {
       config: {
         owner: "Mais Hatem",
         name: "time-it-app",
+        github_repository: {
+          owner: "itsmais",
+          name: "time-it-app",
+        },
       },
       draft: true,
     },
