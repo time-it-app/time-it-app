@@ -9,12 +9,10 @@ module.exports = {
     //         "name": "my_new_app"
     //     }
     // },
-    // {
-    //     "name": "@electron-forge/maker-zip",
-    //     "platforms": [
-    //         "darwin"
-    //     ]
-    // },
+    {
+      name: "@electron-forge/maker-zip",
+      platforms: ["darwin"],
+    },
     // {
     //     "name": "@electron-forge/maker-deb",
     //     "config": {}
@@ -23,6 +21,20 @@ module.exports = {
     //     "name": "@electron-forge/maker-rpm",
     //     "config": {}
     // }
+  ],
+  publishers: [
+    {
+      name: "@electron-forge/publisher-github",
+      config: {
+        owner: "Mais Hatem",
+        name: "time-it-app",
+        github_repository: {
+          owner: "itsmais",
+          name: "time-it-app",
+        },
+      },
+      draft: true,
+    },
   ],
   plugins: [
     [
