@@ -27,7 +27,7 @@ npm run package
 The output will be placed in the `out` directory.
 
 ## 🤝 Contributing
-Time It is celebrating Hacktoberfest 2021 🎉. Feel free to submit a pull request and it will be reviewed within 24 hours. You can also start a discussion before doing that in order to avoid duplications of effort.
+Feel free to submit a pull request and it will be reviewed within 24 hours. You can also start a discussion before doing that in order to avoid duplications of effort.
 
 ## 🚀 Featrures that should be implemented:
 - Add an extract data option to the settings page. Extracted data could be in `.json` or `.csv` forms.
